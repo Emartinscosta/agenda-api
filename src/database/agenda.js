@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { connection } from '../database/connection.jsS'
+import { connection } from './connection.js'
 
 const agenda = connection.define( 
     'agenda',

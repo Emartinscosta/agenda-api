@@ -1,28 +1,19 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import agendaRoutes from "./routes/agendaRoutes.js";
-import authenticate from "./src/database/connection.js";
-import verificarAdm from "./middleware/adminMiddleware.js";
+import agendasRoutes from "./routes/agendasRoute.js";
+import authenticate from "./database/connection.js";
 
 authenticate();
 
 const servidor = express();
 
-servidor.use(cors({ origin: "*"}));
+servidor.use(cors({ origin: "*" }));
 
 servidor.use(express.json());
 
-servidor.use(agendaRoutes);
-
-servidor.get("/admin", verificarAdm, (req, res) => {
-    res.json({
-        mensagem: "Acesso administrativo."
-    });
-});
+servidor.use(agendasRoutes);
 
 servidor.listen(3000, () => {
-    console.log("Servidor em Execução");
+  console.log("Servidor em Execução");
 });
-
-
