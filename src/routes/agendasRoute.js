@@ -3,7 +3,7 @@ import agenda from '../database/agenda.js';
 
 const agendaRoutes = Router();
 
-agendaRoutes.get('/agenda', async (req, res) => {
+agendaRoutes.get('/agendamento', async (req, res) => {
   try {
     const agendas = await agenda.findAll();
     res.json(agendas);
@@ -14,7 +14,7 @@ agendaRoutes.get('/agenda', async (req, res) => {
   }
 });
 
-agendaRoutes.get('/agenda/:id', async (req, res) => {
+agendaRoutes.get('/agendamento/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -33,7 +33,7 @@ agendaRoutes.get('/agenda/:id', async (req, res) => {
   }
 });
 
-agendaRoutes.post('/agenda', async (req, res) => {
+agendaRoutes.post('/agendamento', async (req, res) => {
   const dados = req.body;
   try {
     const salvo = await agenda.create(dados);
@@ -45,7 +45,7 @@ agendaRoutes.post('/agenda', async (req, res) => {
   }
 });
 
-agendaRoutes.put('/agenda/:id', async (req, res) => {
+agendaRoutes.put('/agendamento/:id', async (req, res) => {
   const { id } = req.params;
   const dados = req.body;
   try {
@@ -66,7 +66,7 @@ agendaRoutes.put('/agenda/:id', async (req, res) => {
   }
 });
 
-agendaRoutes.delete('/agenda/:id', async (req, res) => {
+agendaRoutes.delete('/agendamento/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const foundAgenda = await agenda.findByPk(id);

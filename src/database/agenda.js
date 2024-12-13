@@ -26,9 +26,7 @@ const agenda = connection.define(
       allowNull: false,
     },
   },
-  {
-    timestamps: false,
-  }
+ 
 );
 
 export default agenda;
